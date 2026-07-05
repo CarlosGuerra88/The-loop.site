@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marketing para Ecommerce · The Loop</title>
+<meta name="description" content="Campañas de catálogo en Meta y Google con tracking real y un checkout que convierte. Cada peso vuelve en ventas rastreables. ROAS 9× comprobado." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --black:#050505;--panel:#0c0c0e;--violet:#7C3AED;--lime:#B6FF3B;
+  --text:#F4F4F5;--muted:rgba(255,255,255,.62);--soft:rgba(255,255,255,.40);
+  --line:rgba(255,255,255,.12);--radius:22px;--max:1080px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--black);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.narrow{max-width:780px;margin:0 auto;padding:0 24px;}
+h1,h2,h3{font-family:Manrope,Inter,sans-serif;letter-spacing:-.03em;line-height:1.06;margin:0;}
+h1{font-size:clamp(34px,5.4vw,60px);font-weight:900;letter-spacing:-.045em;}
+h2{font-size:clamp(27px,4vw,44px);font-weight:900;}
+h3{font-size:clamp(19px,2.5vw,25px);font-weight:800;letter-spacing:-.02em;}
+p{margin:0 0 16px;}
+strong{font-weight:700;color:var(--text);}
+.lime{color:var(--lime);}.vio{color:#a978ff;}
+.eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--violet);margin-bottom:18px;}
+.eyebrow.l{color:var(--lime);}
+
+.sec{padding:84px 0;position:relative;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);max-width:var(--max);margin:0 auto;}
+
+/* TOP BAR */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(5,5,5,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+.brand{font-family:Manrope,sans-serif;font-weight:900;font-size:18px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;text-decoration:none;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime);}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#06160a;background:var(--lime);padding:9px 16px;border-radius:999px;text-decoration:none;transition:.2s;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(182,255,59,.25);}
+
+/* BUTTONS */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--lime);color:#06160a;font-family:Manrope,sans-serif;font-weight:900;font-size:clamp(15px,2vw,18px);text-decoration:none;border:none;cursor:pointer;padding:18px 30px;border-radius:15px;transition:.22s ease;box-shadow:0 14px 40px rgba(182,255,59,.24);text-align:center;line-height:1.15;}
+.cta:hover{transform:translateY(-3px);box-shadow:0 20px 54px rgba(182,255,59,.34);}
+.cta.full{display:flex;width:100%;}
+.cta.ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none;}
+.cta.ghost:hover{border-color:rgba(182,255,59,.4);box-shadow:none;}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
+.cta-sub{display:block;color:var(--soft);font-size:12.5px;margin-top:12px;}
+
+/* HERO */
+.hero{padding:54px 0 70px;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;top:-30%;left:55%;width:120%;height:80%;background:radial-gradient(ellipse at center,rgba(124,58,237,.28),transparent 62%);z-index:0;}
+.hero .wrap{position:relative;z-index:1;}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;}
+.crumb{font-size:12px;font-weight:700;color:var(--soft);margin-bottom:22px;}
+.crumb a{color:var(--soft);text-decoration:none;}
+.crumb a:hover{color:var(--lime);}
+.hero h1{max-width:15ch;}
+.hero-sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);max-width:54ch;margin:22px 0 0;}
+
+/* SIGNATURE PANEL */
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border-radius:24px;padding:26px;box-shadow:0 30px 90px rgba(0,0,0,.5);position:relative;overflow:hidden;}
+.panel::after{content:"";position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle at 70% 30%,rgba(182,255,59,.18),transparent 60%);pointer-events:none;}
+.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;position:relative;z-index:1;}
+.panel-head .label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);}
+.panel-head .live{font-size:10px;font-weight:800;color:var(--lime);display:flex;align-items:center;gap:6px;}
+.panel-head .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:pulse 1.8s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.roas-hero{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;position:relative;z-index:1;}
+.roas-hero .big{font-family:Manrope,sans-serif;font-size:58px;font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--lime);}
+.roas-hero .x{font-family:Manrope,sans-serif;font-size:30px;font-weight:900;color:var(--lime);}
+.roas-hero .cap{font-size:12px;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-left:6px;}
+.panel-note{font-size:12px;color:var(--muted);margin-bottom:20px;position:relative;z-index:1;}
+.panel-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1;}
+.pstat{border:1px solid var(--line);border-radius:13px;padding:15px;background:rgba(255,255,255,.025);}
+.pstat .pn{font-family:Manrope,sans-serif;font-weight:900;font-size:22px;letter-spacing:-.03em;line-height:1;}
+.pstat .pn.up{color:var(--lime);}
+.pstat .pl{font-size:11px;color:var(--muted);margin-top:5px;}
+.panel-foot{margin-top:18px;font-size:11.5px;color:var(--soft);text-align:center;position:relative;z-index:1;}
+
+/* PROBLEM */
+.problem h2{max-width:18ch;}
+.problem-lead{color:var(--muted);font-size:17px;max-width:58ch;margin-top:20px;}
+.bleed{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px;}
+.bleed-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,90,90,.05),rgba(255,255,255,.012));border-radius:16px;padding:24px;}
+.bleed-card .bi{font-size:20px;margin-bottom:12px;}
+.bleed-card h3{font-size:17px;margin-bottom:8px;}
+.bleed-card p{color:var(--muted);font-size:14px;margin:0;}
+
+/* PROTOCOL */
+.proto{background:linear-gradient(180deg,rgba(124,58,237,.07),transparent);}
+.proto .lead{color:var(--muted);max-width:56ch;margin-top:18px;}
+.steps{display:grid;gap:14px;margin-top:40px;}
+.step{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.012));border-radius:16px;padding:24px 26px;}
+.step .sn{font-family:Manrope,sans-serif;font-size:14px;font-weight:900;color:#06160a;background:var(--lime);width:30px;height:30px;border-radius:9px;display:grid;place-items:center;}
+.step h3{font-size:18px;margin-bottom:6px;}
+.step p{color:var(--muted);font-size:14px;margin:0;}
+
+/* INCLUDES */
+.inc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:38px;}
+.inc{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:14px;padding:20px;}
+.inc .ic{color:var(--lime);font-weight:900;font-size:18px;flex-shrink:0;line-height:1.3;}
+.inc h3{font-size:16px;margin-bottom:4px;}
+.inc p{font-size:13px;color:var(--muted);margin:0;}
+
+/* CASE */
+.case{background:rgba(255,255,255,.015);}
+.case-box{border:1px solid var(--line);background:linear-gradient(180deg,rgba(182,255,59,.05),rgba(255,255,255,.012));border-radius:24px;padding:clamp(28px,4vw,46px);}
+.case-tag{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);margin-bottom:16px;}
+.case-box h2{max-width:20ch;margin-bottom:8px;}
+.case-meta{color:var(--soft);font-size:13px;margin-bottom:28px;}
+.case-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px;}
+.cm{text-align:center;border:1px solid var(--line);border-radius:14px;padding:18px 12px;background:rgba(255,255,255,.02);}
+.cm .cn{font-family:Manrope,sans-serif;font-weight:900;font-size:clamp(24px,3vw,32px);letter-spacing:-.03em;color:var(--lime);line-height:1;}
+.cm .cl{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.3;}
+.case-quote{border-left:2px solid var(--lime);padding-left:20px;color:var(--text);font-size:16px;font-style:italic;line-height:1.6;}
+.case-quote .who{display:block;font-style:normal;font-size:13px;color:var(--soft);margin-top:10px;}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px;}
+.why{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.012));border-radius:18px;padding:30px;}
+.why h3{font-size:20px;margin-bottom:10px;}
+.why p{color:var(--muted);font-size:14.5px;margin:0;}
+
+/* FAQ */
+.faq{max-width:780px;margin:0 auto;}
+.faq h2{text-align:center;margin-bottom:34px;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;text-align:left;font-family:Manrope,sans-serif;font-size:16px;font-weight:800;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;}
+.faq-ic{font-size:22px;color:var(--lime);transition:transform .3s;flex-shrink:0;}
+.faq-a{color:var(--muted);font-size:14.5px;line-height:1.7;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;}
+.faq-a p{margin:0 0 12px;}
+.faq-item.open .faq-a{max-height:420px;padding-bottom:22px;}
+.faq-item.open .faq-ic{transform:rotate(45deg);}
+
+/* FINAL */
+.final{text-align:center;overflow:hidden;position:relative;}
+.final::before{content:"";position:absolute;bottom:-40%;left:50%;transform:translateX(-50%);width:120%;height:90%;background:radial-gradient(ellipse at center,rgba(182,255,59,.16),transparent 60%);z-index:0;}
+.final .wrap{position:relative;z-index:1;}
+.final h2{font-size:clamp(28px,5vw,52px);max-width:18ch;margin:0 auto 16px;}
+.final p{color:var(--muted);max-width:52ch;margin:0 auto 30px;}
+
+/* FOOTER */
+.footer{padding:50px 0 60px;border-top:1px solid var(--line);background:rgba(0,0,0,.4);}
+.footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+.footer .f-brand{font-family:Manrope,sans-serif;font-weight:900;font-size:18px;}
+.footer .f-links{display:flex;gap:18px;flex-wrap:wrap;}
+.footer .f-links a{color:var(--soft);font-size:11px;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;}
+.footer .f-links a:hover{color:var(--lime);}
+.footer .f-copy{width:100%;font-size:11px;color:rgba(255,255,255,.3);border-top:1px solid var(--line);padding-top:20px;margin-top:6px;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.vis{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}}
+
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:36px;}
+  .bleed{grid-template-columns:1fr;}
+  .inc-grid,.why-grid{grid-template-columns:1fr;}
+  .case-metrics{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){.sec{padding:60px 0;}.topbar .nav-cta{padding:8px 13px;font-size:12px;}}
+</style>
+<style>
+.fp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;position:relative;z-index:1;}
+.fp-head .label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);}
+.fp-head .live{font-size:10px;font-weight:800;color:var(--lime);display:flex;align-items:center;gap:6px;}
+.fp-head .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:pulse 1.8s infinite;}
+.flow{position:relative;z-index:1;display:grid;gap:0;margin-bottom:6px;}
+.fstep{display:flex;align-items:center;gap:14px;padding:12px 0;position:relative;}
+.fstep .fdot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-family:Manrope,sans-serif;font-weight:900;font-size:13px;flex-shrink:0;background:rgba(124,58,237,.16);border:1px solid rgba(124,58,237,.35);color:#a978ff;z-index:2;}
+.fstep:last-child .fdot{background:var(--lime);border-color:var(--lime);color:#06160a;box-shadow:0 0 16px rgba(182,255,59,.4);}
+.fstep .flbl{font-size:14px;font-weight:600;color:var(--text);}
+.fstep:last-child .flbl{font-weight:800;color:var(--lime);}
+.fstep::before{content:"";position:absolute;left:14px;top:30px;bottom:-12px;width:1px;background:linear-gradient(180deg,rgba(124,58,237,.4),rgba(124,58,237,.1));z-index:1;}
+.fstep:last-child::before{display:none;}
+.fp-cap{font-size:12.5px;color:var(--muted);margin-top:14px;position:relative;z-index:1;padding-top:14px;border-top:1px solid var(--line);}
+.fp-cap b{color:var(--lime);font-weight:700;}
+.case-flag{display:inline-block;font-size:10.5px;font-weight:700;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px;margin-bottom:14px;}
+.ldisc{max-width:760px;margin:0 auto;font-size:10.5px;color:rgba(255,255,255,.3);line-height:1.6;text-align:left;border-top:1px solid var(--line);padding-top:18px;margin-top:8px;}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="index.html"><span class="dot"></span>THE LOOP</a><a class="nav-cta" href="https://calendly.com/the-loop-marketing" target="_blank" rel="noopener">Diagnóstico gratuito →</a></div></header>
+
+<section class="hero"><div class="wrap"><div class="hero-grid">
+<div>
+<div class="crumb"><a href="index.html">Inicio</a> / Industrias / <span style="color:var(--muted)">Ecommerce</span></div>
+<span class="eyebrow">Marketing para ecommerce</span>
+<h1>Vendé más con el <span class="lime">mismo presupuesto.</span></h1>
+<p class="hero-sub">Configuramos, gestionamos y optimizamos tus campañas de catálogo en Meta y Google con tracking real y un checkout que convierte. Cada peso invertido vuelve en ventas que podés rastrear. ROAS de 9× comprobado.</p>
+<div class="cta-row"><a class="cta" href="https://calendly.com/the-loop-marketing" target="_blank" rel="noopener">Diagnóstico gratuito →</a><a class="cta ghost" href="#sistema">Cómo funciona ↓</a></div>
+</div>
+<div class="panel reveal"><div class="panel-head"><span class="label">Caso real · Q1 2026</span><span class="live">En vivo</span></div><div class="roas-hero"><span class="big" id="roasNum">0.0</span><span class="x">×</span><span class="cap">ROAS</span></div><p class="panel-note">Por cada $1 invertido en pauta.</p><div class="panel-stats"><div class="pstat"><div class="pn up">+48%</div><div class="pl">Crecimiento en ventas</div></div><div class="pstat"><div class="pn up">−12%</div><div class="pl">Menos inversión</div></div><div class="pstat"><div class="pn">$9.19</div><div class="pl">CAC por cliente</div></div><div class="pstat"><div class="pn">100%</div><div class="pl">Atribución técnica</div></div></div><div class="panel-foot">Cliente ecommerce · Moda infantil · Guayaquil</div></div>
+</div></div></section>
+
+<section class="sec problem"><div class="wrap">
+<span class="eyebrow">El problema</span>
+<h2>Tenés tráfico y ventas. Pero ¿sabés qué campaña es rentable?</h2>
+<p class="problem-lead reveal">Invertís en anuncios, entran visitas, hay ventas — pero no sabés qué peso genera ganancia y cuál se quema. Sin tracking real y sin un checkout optimizado, escalás a ciegas y dejás plata sobre la mesa en cada etapa del embudo.</p>
+<div class="bleed"><div class="bleed-card reveal"><div class="bi">🎯</div><h3>ROAS que no cierra</h3><p>La plataforma dice una cosa, tu cuenta bancaria otra. Sin atribución real, no sabés si ganás o perdés.</p></div><div class="bleed-card reveal"><div class="bi">🛒</div><h3>Carritos que se abandonan</h3><p>Traés la visita, agrega al carrito… y se va. Sin recuperación, esa venta casi-cerrada se pierde.</p></div><div class="bleed-card reveal"><div class="bi">🕳️</div><h3>Tracking roto</h3><p>Pixel mal montado, sin API de Conversiones, sin catálogo bien armado. Meta optimiza con data sucia.</p></div></div>
+</div></section>
+
+<div class="divider"></div>
+
+<section class="sec" id="sistema"><div class="wrap">
+<span class="eyebrow l">Qué hacemos</span>
+<h2>Performance de ecommerce, de la pauta al checkout.</h2>
+<div class="inc-grid"><div class="inc reveal"><span class="ic">→</span><div><h3>Campañas de catálogo en Meta y Google</h3><p>Advantage+ y Performance Max bien configuradas, con tu catálogo optimizado para vender.</p></div></div><div class="inc reveal"><span class="ic">→</span><div><h3>Tracking real (Pixel + CAPI + GA4)</h3><p>Medición que sí funciona, para que sepas el ROAS real de cada campaña y producto.</p></div></div><div class="inc reveal"><span class="ic">→</span><div><h3>Checkout que convierte</h3><p>Optimizamos la página de producto y el checkout para que más visitas terminen en compra.</p></div></div><div class="inc reveal"><span class="ic">→</span><div><h3>Recuperación de carritos</h3><p>Automatización que rescata las ventas que estaban a un clic de cerrarse.</p></div></div></div>
+</div></section>
+
+<section class="sec case"><div class="wrap"><div class="case-box reveal">
+<span class="case-flag">Caso real · Cliente ecommerce</span>
+<div class="case-tag">Resultados medidos · Q1 2026</div>
+<h2>No es teoría. Esto logramos con un cliente ecommerce real.</h2>
+<p class="case-meta">Cliente ecommerce · Moda infantil · Guayaquil, Ecuador · Enero — Marzo 2026</p>
+<div class="case-metrics"><div class="cm"><div class="cn">9.07×</div><div class="cl">ROAS</div></div><div class="cm"><div class="cn">+48%</div><div class="cl">Crecimiento en ventas</div></div><div class="cm"><div class="cn">−12%</div><div class="cl">Menos inversión</div></div><div class="cm"><div class="cn">$9.19</div><div class="cl">CAC real</div></div></div>
+<p class="case-quote">"Vendimos 48% más gastando 12% menos en publicidad. Antes no entendíamos qué generaba ventas. Ahora lo sabemos — y eso cambió todo."<span class="who">— Cliente ecommerce · Guayaquil, Ecuador</span></p>
+</div></div></section>
+
+<section class="sec"><div class="wrap">
+<span class="eyebrow">Por qué nosotros</span>
+<h2>Optimizamos todo el embudo, no solo la pauta.</h2>
+<div class="why-grid"><div class="why reveal"><h3>Solo métricas que pagan facturas</h3><p>ROAS, CAC y atribución real. Si una métrica no se conecta a una venta, no nos interesa.</p></div><div class="why reveal"><h3>De qué anuncio ve hasta la recompra</h3><p>Cada etapa donde se cae una venta —el clic, el producto, el checkout, el carrito— la encontramos y la arreglamos.</p></div></div>
+</div></section>
+
+<div class="divider"></div>
+
+<section class="sec"><div class="faq"><h2>Preguntas frecuentes</h2><div class="faq-item"><button class="faq-q" aria-expanded="false"><span>¿Con qué plataformas trabajan?</span><span class="faq-ic">+</span></button><div class="faq-a"><p>Meta (Facebook/Instagram) y Google. Configuramos campañas de catálogo, conversión y remarketing según tu producto y márgenes.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false"><span>¿Sirve si vendo por Shopify o WooCommerce?</span><span class="faq-ic">+</span></button><div class="faq-a"><p>Sí. Trabajamos con las principales plataformas de ecommerce y nos integramos con tu tienda y tu tracking.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false"><span>¿Incluye arreglar mi tracking?</span><span class="faq-ic">+</span></button><div class="faq-a"><p>El diagnóstico revela qué está roto. La implementación del Pixel, CAPI y catálogo la podemos ejecutar para que midas bien desde el día uno.</p></div></div><div class="faq-item"><button class="faq-q" aria-expanded="false"><span>¿Cuánto presupuesto necesito?</span><span class="faq-ic">+</span></button><div class="faq-a"><p>Depende de tu margen y catálogo. En el diagnóstico te decimos con qué inversión tiene sentido arrancar para que el experimento dé datos confiables.</p></div></div></div></section>
+
+<section class="sec final"><div class="wrap">
+<h2>¿Sabés cuál de tus campañas realmente gana plata?</h2>
+<p>30 minutos. Revisamos tu cuenta y te mostramos dónde estás dejando ventas sobre la mesa. El diagnóstico es gratuito.</p>
+<a class="cta" href="https://calendly.com/the-loop-marketing" target="_blank" rel="noopener">Diagnóstico gratuito →</a>
+</div></section>
+
+<footer class="footer"><div class="wrap">
+<div class="f-brand">THE LOOP</div>
+<div class="f-links"><a href="index.html">Inicio</a><a href="index.html#servicios">Servicios</a><a href="index.html#resultados">Resultados</a><a href="https://calendly.com/the-loop-marketing" target="_blank" rel="noopener">Diagnóstico gratuito</a></div>
+<div class="ldisc">Las métricas mostradas corresponden a un cliente ecommerce específico (moda infantil) en un período determinado y se presentan a título ilustrativo de nuestro trabajo. No representan resultados típicos ni garantizados: el desempeño varía según la industria, la oferta, el mercado y la ejecución. The Loop es una agencia de marketing digital; no ofrecemos garantías de resultados financieros.</div>
+<div class="f-copy">© 2026 The Loop Agencia · Guayaquil / Cuenca / Ecuador</div>
+</div></footer>
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','971562265434427');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=971562265434427&ev=PageView&noscript=1"/></noscript>
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+document.querySelectorAll('.faq-item').forEach(function(item){var btn=item.querySelector('.faq-q');btn.addEventListener('click',function(){var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(x){x.classList.remove('open');x.querySelector('.faq-q').setAttribute('aria-expanded','false');});if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}});});
+(function(){var el=document.getElementById('roasNum');if(!el)return;var t=9.07,f=false,pn=el.closest('.panel');var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!f){f=true;var s=null,d=1500;function st(ts){if(!s)s=ts;var p=Math.min((ts-s)/d,1);var e2=1-Math.pow(1-p,3);el.textContent=(t*e2).toFixed(2);if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}});},{threshold:.4});o.observe(pn);})();
+</script>
+</body></html>

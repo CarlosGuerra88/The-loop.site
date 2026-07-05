@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>¡Gracias! Tu Diagnóstico está confirmado · The Loop</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --black:#050505; --violet:#7C3AED; --lime:#B6FF3B;
+  --text:#F4F4F5; --muted:rgba(255,255,255,.62); --soft:rgba(255,255,255,.40);
+  --line:rgba(255,255,255,.12); --radius:20px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--black);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+h1,h2,h3{font-family:Manrope,Inter,sans-serif;letter-spacing:-.03em;line-height:1.08;margin:0;}
+h1{font-size:clamp(30px,5vw,48px);font-weight:900;letter-spacing:-.04em;}
+h2{font-size:clamp(22px,3.2vw,30px);font-weight:900;}
+p{margin:0 0 16px;}
+strong{font-weight:700;color:var(--text);}
+.lime{color:var(--lime);}
+
+/* TOP */
+.topbar{border-bottom:1px solid var(--line);background:rgba(5,5,5,.85);backdrop-filter:blur(12px);position:sticky;top:0;z-index:50;}
+.topbar .wrap{max-width:1080px;display:flex;align-items:center;height:60px;}
+.brand{font-family:Manrope,sans-serif;font-weight:900;font-size:18px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;text-decoration:none;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime);}
+
+/* HERO / CONFIRM */
+.confirm{padding:64px 0 36px;text-align:center;position:relative;overflow:hidden;}
+.confirm::before{content:"";position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:120%;height:70%;background:radial-gradient(ellipse at center,rgba(182,255,59,.16),transparent 62%);z-index:0;}
+.confirm .wrap{position:relative;z-index:1;}
+.check{width:78px;height:78px;border-radius:50%;background:rgba(182,255,59,.12);border:1px solid rgba(182,255,59,.4);display:grid;place-items:center;margin:0 auto 24px;}
+.check svg{width:38px;height:38px;}
+.confirm .step-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:18px;}
+.confirm p{color:var(--muted);font-size:17px;max-width:52ch;margin:18px auto 0;}
+
+/* STEPS */
+.section{padding:44px 0;}
+.section-label{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);margin-bottom:20px;text-align:center;}
+.steps{display:grid;gap:12px;}
+.step{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.012));border-radius:16px;padding:20px 22px;}
+.step .s-n{width:38px;height:38px;border-radius:11px;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.3);display:grid;place-items:center;font-family:Manrope,sans-serif;font-weight:900;color:#a978ff;font-size:16px;}
+.step h3{font-size:17px;margin-bottom:4px;}
+.step h3 .when{font-size:11px;font-weight:800;color:var(--lime);background:rgba(182,255,59,.1);border:1px solid rgba(182,255,59,.25);padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle;}
+.step p{color:var(--muted);font-size:14px;margin:0;}
+
+/* FORM */
+.formcard{border:1px solid rgba(182,255,59,.3);background:linear-gradient(180deg,rgba(182,255,59,.06),rgba(255,255,255,.015));border-radius:24px;padding:clamp(26px,4vw,40px);}
+.formcard h2{margin-bottom:6px;}
+.formcard .f-lead{color:var(--muted);font-size:14.5px;margin-bottom:26px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:7px;letter-spacing:.01em;}
+.field label .req{color:var(--lime);}
+.field input,.field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--text);font-family:Inter,sans-serif;font-size:15px;transition:.2s;}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.3);}
+.field input:focus,.field textarea:focus{outline:none;border-color:rgba(182,255,59,.5);background:rgba(255,255,255,.06);box-shadow:0 0 0 3px rgba(182,255,59,.08);}
+.field textarea{resize:vertical;min-height:84px;}
+.field .err{color:#ff7a7a;font-size:12px;margin-top:6px;display:none;}
+.field.invalid .err{display:block;}
+.field.invalid input,.field.invalid textarea{border-color:rgba(255,122,122,.6);}
+.submit{display:flex;width:100%;align-items:center;justify-content:center;gap:10px;background:var(--lime);color:#06160a;font-family:Manrope,sans-serif;font-weight:900;font-size:17px;border:none;cursor:pointer;padding:18px;border-radius:14px;transition:.22s;box-shadow:0 14px 40px rgba(182,255,59,.22);margin-top:6px;}
+.submit:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(182,255,59,.32);}
+.form-note{text-align:center;font-size:12.5px;color:var(--soft);margin-top:14px;}
+.alt-note{text-align:center;font-size:12px;color:var(--soft);margin-top:18px;}
+.alt-note a{color:var(--lime);text-decoration:none;border-bottom:1px solid rgba(182,255,59,.3);}
+
+/* UPSELL SEED */
+.seed{border:1px solid rgba(124,58,237,.3);background:rgba(124,58,237,.06);border-radius:20px;padding:28px;text-align:center;}
+.seed .s-em{font-size:24px;margin-bottom:10px;}
+.seed h3{font-size:19px;margin-bottom:10px;}
+.seed p{color:var(--muted);font-size:14.5px;max-width:48ch;margin:0 auto 20px;}
+.seed a{display:inline-flex;align-items:center;gap:8px;font-family:Manrope,sans-serif;font-weight:800;font-size:14px;color:var(--lime);border:1px solid rgba(182,255,59,.35);padding:12px 22px;border-radius:999px;text-decoration:none;transition:.2s;}
+.seed a:hover{background:rgba(182,255,59,.08);}
+
+/* FOOTER */
+.footer{padding:40px 0 56px;border-top:1px solid var(--line);text-align:center;margin-top:30px;}
+.footer p{font-size:12px;color:var(--soft);margin:0;}
+.footer a{color:var(--lime);text-decoration:none;}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap"><a class="brand" href="#"><span class="dot"></span>THE LOOP</a></div>
+</header>
+
+<!-- CONFIRMATION -->
+<section class="confirm">
+  <div class="wrap">
+    <div class="check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#B6FF3B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <span class="step-tag">Pago confirmado</span>
+    <h1>¡Listo! Tu Diagnóstico Web <span class="lime">está confirmado.</span></h1>
+    <p>Recibimos tu pago. Ahora arrancamos — pero necesitamos un dato tuyo para empezar a analizar tu sitio. Te toma 2 minutos.</p>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Qué pasa ahora</div>
+    <div class="steps">
+      <div class="step">
+        <div class="s-n">1</div>
+        <div><h3>Dejanos tu info <span class="when">Ahora · 2 min</span></h3><p>Completá el formulario de abajo con el link de tu web y cómo contactarte. Es lo único que necesitamos para arrancar.</p></div>
+      </div>
+      <div class="step">
+        <div class="s-n">2</div>
+        <div><h3>Analizamos tu sitio <span class="when">En 48 h</span></h3><p>Corremos las 4 auditorías completas — velocidad, conversión, mobile y medición — y armamos tu reporte priorizado.</p></div>
+      </div>
+      <div class="step">
+        <div class="s-n">3</div>
+        <div><h3>Te lo explicamos <span class="when">Llamada 15 min</span></h3><p>Te mostramos los hallazgos en tu idioma y tu plan de acción: qué arreglar primero y por qué.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONBOARDING FORM -->
+<section class="section">
+  <div class="wrap">
+    <div class="formcard">
+      <h2>Arranquemos tu diagnóstico</h2>
+      <p class="f-lead">Completá estos datos y los enviás directo a nuestro WhatsApp. Apenas los recibamos, empezamos a analizar tu web.</p>
+
+      <div class="field" id="f-nombre">
+        <label>Tu nombre <span class="req">*</span></label>
+        <input type="text" id="nombre" placeholder="Ej. Carlos Guerra" />
+        <span class="err">Decinos tu nombre</span>
+      </div>
+      <div class="field" id="f-web">
+        <label>Link de tu web <span class="req">*</span></label>
+        <input type="text" id="web" placeholder="Ej. www.tunegocio.com" />
+        <span class="err">Necesitamos el link de tu web para analizarla</span>
+      </div>
+      <div class="field" id="f-wa">
+        <label>Tu WhatsApp <span class="req">*</span></label>
+        <input type="tel" id="whatsapp" placeholder="Ej. 099 123 4567" />
+        <span class="err">Dejanos un número para coordinar la llamada</span>
+      </div>
+      <div class="field" id="f-email">
+        <label>Tu email <span class="req">*</span></label>
+        <input type="email" id="email" placeholder="Ej. hola@tunegocio.com" />
+        <span class="err">Ingresá un email válido</span>
+      </div>
+      <div class="field">
+        <label>¿Qué querés que tu web logre? <span style="color:var(--soft);font-weight:400">(opcional)</span></label>
+        <textarea id="objetivo" placeholder="Ej. Quiero que más visitas terminen comprando / pidiendo cotización…"></textarea>
+      </div>
+
+      <button class="submit" id="enviar">Enviar y arrancar mi diagnóstico →</button>
+      <p class="form-note">Se abrirá WhatsApp con tus datos listos para enviar.</p>
+      <p class="alt-note">¿Preferís otro medio? Escribinos directo a <a href="https://wa.me/593000000000" target="_blank" rel="noopener">nuestro WhatsApp</a> o a <a href="mailto:marketing@the-loop.site">marketing@the-loop.site</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- UPSELL SEED -->
+<section class="section">
+  <div class="wrap">
+    <div class="seed">
+      <div class="s-em">💡</div>
+      <h3>Spoiler: una buena parte de lo que vamos a encontrar, lo podemos arreglar por vos.</h3>
+      <p>Si querés, en la llamada te mostramos cómo ejecutar las mejoras — y <strong class="lime">tus $27 se descuentan completos</strong> del desarrollo.</p>
+      <a href="upsell.html">Ver cómo lo ejecutamos →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>© 2026 The Loop · Guayaquil · Cuenca, Ecuador · <a href="https://wa.me/593000000000" target="_blank" rel="noopener">WhatsApp</a></p>
+  </div>
+</footer>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','971562265434427');
+fbq('track','PageView');
+fbq('track','Purchase',{value:27,currency:'USD',content_name:'Diagnostico Web'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=971562265434427&ev=Purchase&cd[value]=27&cd[currency]=USD&noscript=1"/></noscript>
+
+<script>
+/* WhatsApp destino — REEMPLAZAR por el número real (formato internacional sin + ni espacios) */
+var WA_NUMBER = "593000000000";
+
+function val(id){return (document.getElementById(id).value||"").trim();}
+function setErr(fieldId,on){document.getElementById(fieldId).classList.toggle('invalid',on);}
+
+document.getElementById('enviar').addEventListener('click',function(){
+  var nombre=val('nombre'), web=val('web'), wa=val('whatsapp'), email=val('email'), obj=val('objetivo');
+  var ok=true;
+  setErr('f-nombre', !nombre); if(!nombre)ok=false;
+  setErr('f-web', !web); if(!web)ok=false;
+  setErr('f-wa', !wa); if(!wa)ok=false;
+  var emailOk=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+  setErr('f-email', !emailOk); if(!emailOk)ok=false;
+  if(!ok){document.querySelector('.field.invalid').scrollIntoView({behavior:'smooth',block:'center'});return;}
+
+  if(typeof fbq==='function'){fbq('track','Lead',{content_name:'Onboarding Diagnostico'});}
+
+  var msg="¡Hola The Loop! Acabo de comprar mi Diagnóstico Web 🎉%0A%0A"+
+    "*Nombre:* "+encodeURIComponent(nombre)+"%0A"+
+    "*Web:* "+encodeURIComponent(web)+"%0A"+
+    "*WhatsApp:* "+encodeURIComponent(wa)+"%0A"+
+    "*Email:* "+encodeURIComponent(email)+"%0A"+
+    (obj? "*Objetivo:* "+encodeURIComponent(obj) : "");
+  window.open("https://wa.me/"+WA_NUMBER+"?text="+msg,"_blank");
+});
+</script>
+
+</body>
+</html>
