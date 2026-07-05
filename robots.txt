@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Páginas de funnel / post-conversión — no aportan valor en búsqueda orgánica
+# y su indexación puede romper la integridad del tracking (Meta Pixel Lead / InitiateCheckout)
+Disallow: /gracias.html
+Disallow: /upsell.html
+Disallow: /TheLoop-diagnostico-web-sales.html
+
+Sitemap: https://the-loop.site/sitemap.xml
